@@ -1,0 +1,28 @@
+.not-found__div {
+    margin: 20%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+
+.not-found__text {
+    font-size: 50px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.link__button {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border: 5px outset rgba(147, 144, 144, 0.25);
+    justify-content: center;
+    background-color: #040C18;
+    color: snow;
+    padding: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    width: 50%;
+    margin: 5%;
+}

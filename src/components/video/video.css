@@ -1,0 +1,6 @@
+.video__wrap {
+    margin-top: 5%;
+    width: 650px;
+    height: 350px;
+    transition: all 0.8s ease-in-out;
+}

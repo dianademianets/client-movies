@@ -1,26 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
+import {Routes, Route, Navigate} from 'react-router-dom'
+
 import './App.css';
+import {
+    HomePage,
+    Layout,
+    LoginPage,
+    MoviesPage,
+    NotFoundPage,
+    RegisterPage,
+    SearchPage,
+    SingleMoviePage,
+    UserPage,
+} from './pages';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <Routes>
+            <Route path='/' element={<Layout/>}>
+                <Route index element={<HomePage/>}/>
+                <Route path={':id'} element={<SingleMoviePage/>}/>
+                <Route index element={<Navigate to={'movies'}/>}/>
+                <Route path={'movies'} element={<MoviesPage/>}/>
+                <Route path={'movies/:id'} element={<SingleMoviePage/>}/>
+                <Route path={'movies/:id/genres'} element={<SingleMoviePage/>}/>
+                <Route index element={<Navigate to={'search'}/>}/>
+                <Route path={'search'} element={<SearchPage/>}/>
+                <Route path={'search/:id'} element={<SingleMoviePage/>}/>
+                <Route path={'user'} element={<LoginPage/>}/>
+                <Route path={'user/register'} element={<RegisterPage/>}/>
+                <Route path={'account'} element={<UserPage/>}/>
+                <Route path={'*'} element={<NotFoundPage/>}/>
+            </Route>
+        </Routes>
+    );
 }
 
 export default App;

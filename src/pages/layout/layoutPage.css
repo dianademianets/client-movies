@@ -1,0 +1,11 @@
+.header__div {
+    background: #040C18;
+    width: 100%;
+}
+
+.outlet__div {
+    margin: 0 auto;
+    height: calc(100vh - 90px);
+    overflow: hidden;
+    overflow-y: auto;
+}

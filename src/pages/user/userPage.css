@@ -1,0 +1,50 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form_auth {
+    margin: 5%;
+    background: snow;
+    border-radius: 30px;
+    width: 50%;
+    padding: 2% 5%;
+}
+
+.form_auth__h1 h1 {
+    margin: 5%;
+    font-size: 20px;
+}
+
+.text_account, .form_auth__h1 h1 {
+    color: black;
+    text-align: center;
+    font-weight: bold;
+}
+
+.changeAva{
+    background: url("https://www.gravatar.com/avatar/795194f75f0ed00c48c3c7eb36e2e591.jpg?s=150");
+    border-radius: 100%
+}
+
+.avaUser__div {
+    margin: 10% 20%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.avaUser__div h1 {
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+}
+
+.avatar__img {
+    margin:0 10%;
+    width: 200px;
+    height: 200px;
+    border-radius: 100%
+}

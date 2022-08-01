@@ -1,0 +1,35 @@
+.button_container {
+    height: min-content;
+    width: 20%;
+    border: 1px solid gainsboro;
+    background: linear-gradient(89.97deg, lightgray 1.84%, snow 100.67%);
+    border-radius: 8px;
+    margin: 10px 0;
+    padding: 8px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.button_container:hover {
+    transform: scale(1.1);
+    background: #040C18;
+    color: snow;
+    opacity: 1;
+    border: 1px solid #002854;
+    text-decoration: none;
+}
+
+.button_container h1 {
+    font-size: 12px;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.poster_img {
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}

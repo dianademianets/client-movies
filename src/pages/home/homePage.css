@@ -1,0 +1,35 @@
+.header__wrap {
+    background: url("https://www.themoviedb.org/t/p/w1920_and_h600_multi_faces_filter(duotone,032541,01b4e4)/bgQUBbZ14hfeb975yZ2YzTnAwen.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    padding: 5% 10%;
+    font-family: 'Roboto', sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+    color: snow;
+    white-space: nowrap;
+}
+
+.movies_list__wrap {
+    background: #040C18;
+    padding: 2% 8%;
+}
+
+.movies_popular__wrap {
+    width: min-content;
+    background: linear-gradient(89.97deg, #90cea1 1.84%, #01b4e4 102.67%);
+    padding: 15px 20px;
+    margin: 10px 0;
+    border-radius: 40px;
+    font-weight: bold;
+    text-align: center;
+    color: black;
+    white-space: nowrap;
+}
+
+.loading__div h1{
+    text-align: center;
+    font-size: 40px;
+    color: snow;
+    margin: 50px 0;
+}

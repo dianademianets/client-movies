@@ -1,0 +1,86 @@
+.page_movie__div {
+    color: snow;
+    padding: 10px 25px;
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.page_movie__div h1 {
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.page_movie__container {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+    padding: 15px 0;
+}
+
+.poster__img {
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.page_movie_img {
+    width: 23%;
+}
+
+.page_movie_text {
+    width: 70%;
+}
+
+.video_page__div {
+    width: 90%;
+    margin: 0 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.video_page__div h2 {
+    width: min-content;
+    background: linear-gradient(89.97deg, #90cea1 1.84%, #01b4e4 102.67%);
+    padding: 15px 20px;
+    margin: 10px 0;
+    border-radius: 40px;
+    font-weight: bold;
+    text-align: center;
+    color: black;
+    white-space: nowrap;
+}
+
+
+.page_movie_text p {
+    margin: 10px 0;
+    font-size: 15px;
+    overflow-wrap: break-word;
+}
+
+
+.card_genre_container {
+    font-size: 15px;
+    padding: 10px 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card_genre_container_wrap {
+    padding: 0 10px;
+    margin: 0 5px 5px 5px;
+    background: linear-gradient(89.97deg, #01b4e4 1.84%, #90cea1 102.67%);
+    border-radius: 30px;
+    font-weight: bold;
+    text-align: center;
+    color: black;
+}
+
+.reactStars {
+    margin: 0 39.5% 0 39.5%;
+}

@@ -1,0 +1,7 @@
+export * from './layout'
+export * from './home'
+export * from './movies'
+export * from './user'
+export * from './search'
+export * from './single-movie'
+export * from './not-found'

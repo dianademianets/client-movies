@@ -1,0 +1,30 @@
+.movies_container_div {
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    column-gap: 3%;
+    break-inside: avoid;
+}
+.loading__div h1{
+    text-align: center;
+    font-size: 40px;
+    color:snow;
+    margin:50px 0;
+}
+
+.wrap__pagination {
+    margin: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.text_div {
+    color: #040C18;
+    padding: 10px 20px;
+    border-radius: 100%;
+    background: linear-gradient(89.97deg, #90cea1 1.84%, #01b4e4 102.67%);
+    font-weight: bold;
+    font-size: 15px;
+}

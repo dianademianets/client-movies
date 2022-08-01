@@ -1,0 +1,6 @@
+export * from './popular-movies'
+export * from './header'
+export * from './video'
+export * from './movie-card'
+export * from './stars-rating'
+export * from './single-movie-card'

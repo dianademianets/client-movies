@@ -1,0 +1,46 @@
+.header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 15px;
+}
+
+.header_wrap {
+    display: flex;
+    column-gap: 15%;
+}
+
+.header_left {
+    font-size: large;
+}
+
+.header_left, .header_right {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    column-gap: 15%;
+}
+
+.header a {
+    text-decoration: none;
+    font-weight: bold;
+    color: snow;
+    white-space: nowrap;
+}
+
+.header_left a[class='active'], .header_right a[class='active'] {
+    background: linear-gradient(89.97deg, #90cea1 1.84%, #01b4e4 102.67%);
+    padding: 10px;
+    border-radius: 40px;
+    font-weight: bold;
+    text-align: center;
+    color: black;
+    white-space: nowrap;
+}
+
+.form__wrap {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
