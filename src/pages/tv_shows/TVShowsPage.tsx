@@ -1,20 +1,26 @@
-import {FC, useEffect, useState} from 'react';
+import React, {FC, useEffect, useState} from 'react';
+import {TVShowCard} from '../../components';
 
 import {useAppDispatch, useAppSelector} from '../../hooks';
-import {IMovie} from '../../interfaces';
-import {getPopularMovie} from '../../store/slices';
-import {MovieCard} from '../movie-card';
-import './popularMovies.css'
+import {IGenre} from '../../interfaces';
+import {getAllGenres, getAllTVShows, getALLTVShowWithGenre,} from '../../store/slices';
 
-const PopularMovies: FC = () => {
+const TVShowsPage: FC = () => {
+
+    const {genres} = useAppSelector((state) => state.genresReducer);
+    const {tvShows, totalPage, status} = useAppSelector(
+        (state) => state.tvShowsReducer
+    )
     const [pageNumber, setPageNumber] = useState(1);
-    const {movies, totalPage, status} = useAppSelector(
-        (state) => state.moviesReducer
-    );
+
     const dispatch = useAppDispatch();
 
     useEffect(() => {
-        dispatch(getPopularMovie({currentPage: Number(pageNumber)}));
+        dispatch(getAllGenres());
+    }, [dispatch]);
+
+    useEffect(() => {
+        dispatch(getAllTVShows({currentPage: Number(pageNumber)}));
     }, [dispatch, pageNumber]);
 
     const handlePrevious = () => {
@@ -30,8 +36,20 @@ const PopularMovies: FC = () => {
             <div className='loading__div'>
                 {status === 'loading' && <h1>Loading...</h1>}
             </div>
-            <div className='movies_container_div'>
-                {status === 'fulfilled' && movies.map((value: IMovie) => <MovieCard key={value.id} movie={value}/>)}
+            <div className='div__wrap_movie'>
+                <div className='genres_wrapper__div'>
+                    {status === 'fulfilled' && genres.map((genre: IGenre) =>
+                        <div className='genre_wrap'
+                             onClick={() => (dispatch(getALLTVShowWithGenre(genre.id)))}
+                        >{genre.name}</div>
+                    )}
+                </div>
+
+                <div className='header_wrapper__div'>
+                    <div className='header_wrap__div'>
+                        {status === 'fulfilled' && tvShows.map(tvShow => <TVShowCard key={tvShow.id} tvShow={tvShow}/>)}
+                    </div>
+                </div>
             </div>
             <div className='wrap__pagination'>
                 <button className=' btn btn-outline-dark page-link fs-8' disabled={pageNumber - 1 === 0}
@@ -50,8 +68,7 @@ const PopularMovies: FC = () => {
                 </button>
             </div>
         </div>
-    )
-
+    );
 };
 
-export default PopularMovies;
+export default TVShowsPage;

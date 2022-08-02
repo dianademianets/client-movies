@@ -66,7 +66,7 @@ const authSlice = createSlice({
             state.status = 'fulfilled';
             state.session_id = action.payload.session_id;
         });
-        builder.addCase(getAccountDetails.pending, (state, action) => {
+        builder.addCase(getAccountDetails.pending, (state) => {
             state.status = 'Loading';
         });
         builder.addCase(getAccountDetails.fulfilled, (state, action) => {

@@ -1,14 +1,14 @@
 import React, {FC, useEffect} from 'react';
 import {NavLink} from 'react-router-dom';
 
-import {IMovie} from '../../interfaces';
+import {ITVShow} from '../../interfaces';
 import {StarsRating} from '../stars-rating';
-import './singleMovieCard.css'
+import './singleTVShowCard.css'
 import {useAppDispatch, useAppSelector} from '../../hooks';
 import {getAllVideos} from '../../store/slices';
 import {Video} from '../video';
 
-const SingleMovieCard: FC<{ movie: IMovie }> = ({movie}) => {
+const SingleTVShowCard: FC<{ tvShow: ITVShow }> = ({tvShow}) => {
     const {
         id,
         popularity,
@@ -17,10 +17,9 @@ const SingleMovieCard: FC<{ movie: IMovie }> = ({movie}) => {
         original_title,
         overview,
         poster_path,
-        release_date,
+        first_air_date,
         vote_average,
-        budget
-    } = movie
+    } = tvShow
 
     const {video, status} = useAppSelector(state => state.videoReducer);
 
@@ -38,7 +37,7 @@ const SingleMovieCard: FC<{ movie: IMovie }> = ({movie}) => {
                          alt={`${original_title} poster`}/>
                 </div>
                 <div className='page_movie_text'>
-                    <p><b className='rating'>Movie rating: {vote_average}</b></p>
+                    <p><b className='rating'>TV Show rating: {vote_average}</b></p>
                     <p><b>Popularity: </b>{popularity}</p>
                     <div className='card_genre_container'>
                         <b>Genres:</b> {genres && genres.map(({name, id}, i) => (
@@ -46,10 +45,9 @@ const SingleMovieCard: FC<{ movie: IMovie }> = ({movie}) => {
                             {name} {i < genres.length - 1 && ' '}
                         </div>))}
                     </div>
-                    <p><b>Budget:</b> <br/>{budget}</p>
                     <p><b>Overview:</b> <br/>{overview}</p>
-                    <p><b>Please rate this movie:</b> <StarsRating/></p>
-                    <p><b>Release date:</b> {release_date}</p>
+                    <p><b>Please rate this tv show:</b> <StarsRating/></p>
+                    <p><b>Release date:</b> {first_air_date}</p>
                     <p><b>Original language:</b> <b>{original_language}</b></p>
                 </div>
             </div>
@@ -68,4 +66,4 @@ const SingleMovieCard: FC<{ movie: IMovie }> = ({movie}) => {
     );
 };
 
-export default SingleMovieCard;
+export default SingleTVShowCard;

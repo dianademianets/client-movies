@@ -26,7 +26,7 @@ const searchSlice = createSlice({
     initialState,
     reducers: {},
     extraReducers: (builder) => {
-        builder.addCase(getAllSearch.pending, (state, action) => {
+        builder.addCase(getAllSearch.pending, (state) => {
             state.status = 'Loading';
         });
         builder.addCase(getAllSearch.fulfilled, (state, action) => {

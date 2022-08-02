@@ -18,11 +18,11 @@ const MoviesList: FC = () => {
 
     useEffect(() => {
         dispatch(getAllGenres());
-    }, []);
+    }, [dispatch]);
 
     useEffect(() => {
         dispatch(getAllMovies({currentPage: Number(pageNumber)}));
-    }, [pageNumber]);
+    }, [dispatch, pageNumber]);
 
     const handlePrevious = () => {
         pageNumber <= 1 ? setPageNumber(1) : setPageNumber(pageNumber - 1);

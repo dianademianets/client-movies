@@ -9,14 +9,20 @@ const SingleMoviePage: FC = () => {
 
     const {id} = useParams<{ id: string }>();
     const {movieById} = useAppSelector(state => state.moviesReducer);
+    const {user} = useAppSelector((state) => state.authReducer)
 
     const dispatch = useAppDispatch();
     useEffect(() => {
         dispatch(getByIdMovies({id: Number(id)}));
-    }, [id]);
+    }, [dispatch, id]);
 
+    const handleHistory = () => {
+        if (user) {
+            localStorage.setItem('history', JSON.stringify([movieById]))
+        }
+    }
     return (
-        <div>
+        <div onClick={handleHistory}>
             {movieById && <SingleMovieCard key={movieById.id} movie={movieById}/>}
         </div>
     )

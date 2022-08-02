@@ -12,7 +12,7 @@ const LoginPage: FC = () => {
 
         useEffect(() => {
             dispatch(getToken());
-        }, []);
+        }, [dispatch]);
 
         const navigate = useNavigate();
         const ref = useRef<any>({});

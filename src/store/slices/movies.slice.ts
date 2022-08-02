@@ -49,6 +49,7 @@ export const getByIdMovies = createAsyncThunk<IMovie, { id: number }>(
         return data;
     }
 );
+
 export const getALLMovieWithGenre = createAsyncThunk<IMoviesResponse, number>(
     'moviesSlice/getALLMovieWithWGenre',
     async (id) => {
@@ -62,7 +63,7 @@ const moviesSlice = createSlice({
     initialState,
     reducers: {},
     extraReducers: (builder) => {
-        builder.addCase(getAllMovies.pending, (state, action) => {
+        builder.addCase(getAllMovies.pending, (state) => {
             state.status = 'Loading';
         });
         builder.addCase(getAllMovies.fulfilled, (state, action) => {
@@ -79,7 +80,7 @@ const moviesSlice = createSlice({
             state.movies = action.payload.results
         })
 
-        builder.addCase(getPopularMovie.pending, (state, action) => {
+        builder.addCase(getPopularMovie.pending, (state) => {
             state.status = 'Loading';
         });
         builder.addCase(getPopularMovie.fulfilled, (state, action) => {
