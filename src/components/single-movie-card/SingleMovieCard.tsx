@@ -34,12 +34,16 @@ const SingleMovieCard: FC<{ movie: IMovie }> = ({movie}) => {
         dispatch(addMovieToWatchList({id: Number(user?.id), session_id, media_id: Number(id)}));
         if (session_id === null) {
             alert('Please sign in!')
+        } else if (!session_id === null) {
+            alert('Add to favorite!')
         }
     }
     const addToFavorite = () => {
         dispatch(addMovieToFavorite({id: Number(user?.id), session_id, media_id: Number(id)}));
         if (session_id === null) {
             alert('Please sign in!')
+        } else if (!session_id === null) {
+            alert('Add to favorite!')
         }
     }
     return (
