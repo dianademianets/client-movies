@@ -7,20 +7,24 @@ interface IAuthState {
     requestToken: any;
     session_id: any;
     id: any;
+    media_id: any;
     user: IUser | null;
     userResponse: IUserResponse | null;
     status: string | null;
-    movies: IMovie[];
+    watchlist: IMovie[];
+    favorite: IMovie[];
 }
 
 const initialState: IAuthState = {
     requestToken: null,
     session_id: null,
     id: null,
+    media_id: null,
     user: null,
     userResponse: null,
     status: null,
-    movies: []
+    watchlist: [],
+    favorite: [],
 };
 
 export const getToken = createAsyncThunk<IUserData, void>(
@@ -60,6 +64,28 @@ export const getAccountWatchList = createAsyncThunk<IMoviesResponse, number>(
     }
 )
 
+export const addMovieToWatchList = createAsyncThunk<IMoviesResponse, { id: number, session_id: string, media_id: number }>(
+    'authSlice/addMovieToWatchList',
+    async ({id, session_id, media_id}) => {
+        const {data} = await authService.addMovieToWatchList(id, session_id, media_id);
+        return data
+    }
+)
+export const getAccountFavorite = createAsyncThunk<IMoviesResponse, number>(
+    'authSlice/getAccountFavorite',
+    async (id) => {
+        const {data} = await authService.getAccountFavorite(id);
+        return data
+    }
+)
+
+export const addMovieToFavorite = createAsyncThunk<IMoviesResponse, { id: number, session_id: string, media_id: number }>(
+    'authSlice/addMovieToFavorite',
+    async ({id, session_id, media_id}) => {
+        const {data} = await authService.addMovieToFavorite(id, session_id, media_id);
+        return data
+    }
+)
 
 const authSlice = createSlice({
     name: 'authSlice',
@@ -88,7 +114,11 @@ const authSlice = createSlice({
 
         builder.addCase(getAccountWatchList.fulfilled, (state, action) => {
             state.status = 'fulfilled';
-            state.movies = action.payload.results;
+            state.watchlist = action.payload.results;
+        })
+        builder.addCase(getAccountFavorite.fulfilled, (state, action) => {
+            state.status = 'fulfilled';
+            state.favorite = action.payload.results;
         })
     }
 })

@@ -35,6 +35,23 @@
     width: 70%;
 }
 
+.div__watchlist__favorite {
+    display: flex;
+    margin-right: 5%;
+}
+
+.div__watchlist {
+    display: flex;
+    align-items: center;
+}
+
+.div_watchlist {
+    border-radius: 100%;
+    padding: 5px 10px;
+    margin: 0 20px;
+    background: linear-gradient(89.97deg, #90cea1 1.84%, #01b4e4 102.67%);
+}
+
 .video_page__div {
     width: 90%;
     margin: 0 5%;

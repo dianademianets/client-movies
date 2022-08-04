@@ -29,7 +29,7 @@ const LoginPage: FC = () => {
 
             if (session_id) {
                 navigate(`/account`)
-            } else {
+            } else if(session_id === null){
                 alert(`We don't found your account. Please, check that correct username`)
             }
             e.preventDefault();

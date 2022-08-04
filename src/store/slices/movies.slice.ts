@@ -65,10 +65,10 @@ export const getALLMovieWithGenre = createAsyncThunk<IMoviesResponse, number>(
     }
 );
 
-export const getMovieWithYear = createAsyncThunk<IMoviesResponse, { year:number, currentPage:number }>(
+export const getMovieWithYear = createAsyncThunk<IMoviesResponse, { year: number, currentPage: number }>(
     'moviesSlice/getMovieWithYear',
     async ({year, currentPage}) => {
-        const {data} = await moviesService.getMovieWithYear(year,currentPage);
+        const {data} = await moviesService.getMovieWithYear(year, currentPage);
         return data;
     }
 );

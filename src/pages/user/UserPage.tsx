@@ -4,10 +4,10 @@ import {useNavigate} from 'react-router-dom';
 import './userPage.css'
 import {useAppDispatch, useAppSelector} from '../../hooks';
 import {IMovie} from '../../interfaces';
-import {getAccountDetails, getAccountWatchList} from '../../store/slices';
+import {getAccountDetails, getAccountFavorite, getAccountWatchList} from '../../store/slices';
 
 const UserPage: FC = () => {
-    const {user, movies, session_id} = useAppSelector((state) => state.authReducer)
+    const {user, watchlist, favorite, session_id} = useAppSelector((state) => state.authReducer)
 
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
@@ -20,6 +20,10 @@ const UserPage: FC = () => {
         dispatch(getAccountWatchList(Number(user?.id)));
     }, [dispatch, user?.id]);
 
+    useEffect(() => {
+        dispatch(getAccountFavorite(Number(user?.id)));
+    }, [dispatch, user?.id]);
+
     return (
         <div>
             <div className='avaUser__div'>
@@ -30,8 +34,17 @@ const UserPage: FC = () => {
 
             </div>
             <div className='movies_list__wrap'>
-                <div className='movies_popular__wrap'>Latest Movies:</div>
-                {movies.map((value: IMovie) =>
+                <div className='movies_popular__wrap'>Watchlist:</div>
+                {watchlist.map((value: IMovie) =>
+                    <button className='button_container' onClick={() => navigate(`movie/${value.id.toString()}`)}>
+                        <img className='poster_img' src={`https://image.tmdb.org/t/p/w500${value.poster_path}`}
+                             alt={`${value.original_title} poster`}/>
+                        <h1>{value.original_title}</h1>
+                    </button>)}
+            </div>
+            <div className='movies_list__wrap'>
+                <div className='movies_popular__wrap'>Watchlist:</div>
+                {favorite.map((value: IMovie) =>
                     <button className='button_container' onClick={() => navigate(`movie/${value.id.toString()}`)}>
                         <img className='poster_img' src={`https://image.tmdb.org/t/p/w500${value.poster_path}`}
                              alt={`${value.original_title} poster`}/>
