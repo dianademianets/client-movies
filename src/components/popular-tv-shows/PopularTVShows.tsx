@@ -45,16 +45,16 @@ const PopularTVShows: FC = () => {
                 </div>
 
 
-                <a className='carousel-control-prev' role='button' data-slide='prev'>
+                <div className='carousel-control-prev' role='button' data-slide='prev'>
                     <span className='carousel-control-prev-icon' aria-hidden='true' onClick={() => {
                         handlePrevious()
                     }}></span>
-                </a>
-                <a className='carousel-control-next' role='button' data-slide='next'>
+                </div>
+                <div className='carousel-control-next' role='button' data-slide='next'>
                     <span className='carousel-control-next-icon' aria-hidden='true' onClick={() => {
                         handleNext()
                     }}></span>
-                </a>
+                </div>
             </div>
         </div>
     )

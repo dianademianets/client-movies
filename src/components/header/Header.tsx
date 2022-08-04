@@ -44,7 +44,7 @@ const Header: FC = () => {
                 <div className='header_right'>
 
                     {(!user) ? <NavLink to='/user'>Sign In</NavLink> : (user) ?
-                        <NavLink className='avatar' to={`/account/${user.account_id}`}>{user.username}</NavLink> :
+                        <NavLink className='avatar' to={`/account`}>{user.username}</NavLink> :
                         <NavLink to='/user'>Sign Out</NavLink>}
                     <div>
                         <button className=' btn btn-outline-light fs-6'

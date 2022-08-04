@@ -38,7 +38,7 @@ function App() {
 
                 <Route path={'user'} element={<LoginPage/>}/>
                 <Route path={'user/register'} element={<RegisterPage/>}/>
-                <Route path={'account/'} element={<UserPage/>}/>
+                <Route path={'account'} element={<UserPage/>}/>
                 <Route path={'account/movie/:id'} element={<SingleMoviePage/>}/>
                 <Route path={'*'} element={<NotFoundPage/>}/>
             </Route>

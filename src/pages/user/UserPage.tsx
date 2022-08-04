@@ -20,7 +20,6 @@ const UserPage: FC = () => {
         dispatch(getAccountWatchList(Number(user?.account_id)));
     }, [dispatch, user?.account_id]);
 
-
     return (
         <div>
             <div className='avaUser__div'>

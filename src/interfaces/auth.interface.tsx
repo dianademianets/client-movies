@@ -1,5 +1,5 @@
 export interface IUser {
-    account_id: string;
+    account_id: number;
     session_id: string;
     username: string;
     name: string;

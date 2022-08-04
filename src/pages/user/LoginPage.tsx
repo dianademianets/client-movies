@@ -14,19 +14,23 @@ const LoginPage: FC = () => {
             dispatch(getToken());
         }, [dispatch]);
 
+        useEffect(() => {
+            dispatch(createSessionId(requestToken));
+        }, [dispatch, requestToken]);
+
         const navigate = useNavigate();
         const ref = useRef<any>({});
 
-        const handleChange = (e: any) => {
+        const handleChange = async(e: any) => {
             const username = ref.current['username'].value;
             const password = ref.current['password'].value;
             dispatch(login({username, password, requestToken}));
-            dispatch(createSessionId(requestToken));
+
             e.preventDefault();
         }
 
         if (userResponse?.success === true) {
-            navigate(`/account}`)
+            navigate(`/account`)
         } else if (userResponse?.success === false) {
             alert(`We don't found your account. Please, check that correct username`)
         }
