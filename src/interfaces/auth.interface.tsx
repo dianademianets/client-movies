@@ -1,19 +1,20 @@
 export interface IUser {
-    session_id:string;
+    account_id: string;
+    session_id: string;
     username: string;
-    name:string;
-    success:boolean;
+    name: string;
+    success: boolean;
 }
 
 
 export interface IUserResponse {
     username: string;
     password: string;
-    success:boolean;
+    success: boolean;
 }
 
 
-export interface IUserData{
+export interface IUserData {
     accessToken: string;
     request_token: string;
     user: IUser;

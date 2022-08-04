@@ -2,20 +2,19 @@ import React, {FC, useEffect, useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 
 import {useAppDispatch, useAppSelector} from '../../hooks';
-import {IMovie} from '../../interfaces';
-import {getPopularMovie} from '../../store/slices';
-import './popularMovies.css'
+import {getPopularTVShow} from '../../store/slices';
+import {ITVShow} from '../../interfaces';
 
-const PopularMovies: FC = () => {
+const PopularTVShows: FC = () => {
     const [pageNumber, setPageNumber] = useState(1);
-    const {movies, totalPage, status} = useAppSelector(
-        (state) => state.moviesReducer
+    const {tvShows, totalPage, status} = useAppSelector(
+        (state) => state.tvShowsReducer
     );
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
 
     useEffect(() => {
-        dispatch(getPopularMovie({currentPage: Number(pageNumber)}));
+        dispatch(getPopularTVShow({currentPage: Number(pageNumber)}));
     }, [dispatch, pageNumber]);
 
     const handlePrevious = () => {
@@ -31,18 +30,20 @@ const PopularMovies: FC = () => {
             <div className='loading__div'>
                 {status === 'loading' && <h1>Loading...</h1>}
             </div>
+
             <div id='carouselExampleControls' className='carousel slide div_carousel' data-ride='carousel'>
                 <div className='carousel-inner div_carousel_inner'>
                     <div className='carousel-item active'>
-                        {movies.map((movie: IMovie) =>
+                        {tvShows.map((tvShow: ITVShow) =>
                             <button className='button_container__carousel'
-                                    onClick={() => navigate(`${movie.id.toString()}`)}>
-                                <img className='poster_img' src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
-                                     alt={`${movie.original_title} poster`}/>
-                                <h1>{movie.original_title}</h1>
+                                    onClick={() => navigate(`${tvShow.id.toString()}`)}>
+                                <img className='poster_img' src={`https://image.tmdb.org/t/p/w200${tvShow.poster_path}`}
+                                     alt={`${tvShow.name} poster`}/>
+                                <h1>{tvShow.name}</h1>
                             </button>)}
                     </div>
                 </div>
+
 
                 <a className='carousel-control-prev' role='button' data-slide='prev'>
                     <span className='carousel-control-prev-icon' aria-hidden='true' onClick={() => {
@@ -60,4 +61,4 @@ const PopularMovies: FC = () => {
 
 };
 
-export default PopularMovies;
+export default PopularTVShows;

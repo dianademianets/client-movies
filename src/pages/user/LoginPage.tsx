@@ -3,10 +3,10 @@ import React, {FC, useEffect, useRef} from 'react';
 import './userPage.css'
 import {useNavigate} from 'react-router-dom';
 import {useAppDispatch, useAppSelector} from '../../hooks';
-import {createSessionId, getToken, login} from '../../store/slices';
+import {createSessionId, getAccountDetails, getToken, login} from '../../store/slices';
 
 const LoginPage: FC = () => {
-        const {requestToken, userResponse} = useAppSelector((state) => state.authReducer)
+        const {requestToken, userResponse,session_id, user} = useAppSelector((state) => state.authReducer)
 
         const dispatch = useAppDispatch();
 
@@ -23,12 +23,12 @@ const LoginPage: FC = () => {
             const password = ref.current['password'].value;
             dispatch(login({username, password, requestToken}));
             dispatch(createSessionId(requestToken));
-
+            dispatch(getAccountDetails(session_id));
             e.preventDefault();
         }
 
         if (userResponse?.success === true) {
-            navigate('/account')
+            navigate(`/account/${user?.account_id}`)
         } else if (userResponse?.success===false) {
             alert(`We don't found your account. Please, check that correct username`)
         }

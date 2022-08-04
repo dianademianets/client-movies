@@ -1,5 +1,5 @@
-import {axiosService} from "./axios.service";
-import {IUser, IUserData, IUserResponse} from "../interfaces";
+import {axiosService} from './axios.service';
+import {IMoviesResponse, IUser, IUserData, IUserResponse} from '../interfaces';
 
 export const authService = {
     login: (username: string, password: string, token: string) => {
@@ -18,6 +18,9 @@ export const authService = {
     },
     getAccountDetails: (session_id: string) => {
         return axiosService.get<IUser>(`/account?session_id=${session_id}`);
+    },
+    getAccountWatchList: (account_id: number) => {
+        return axiosService.get<IMoviesResponse>(`/account/${account_id}/watchlist/movies`);
     },
 
 }

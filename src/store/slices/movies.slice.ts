@@ -41,6 +41,13 @@ export const getPopularMovie = createAsyncThunk<IMoviesResponse, { currentPage: 
         return data;
     }
 );
+export const getRatedMovie = createAsyncThunk<IMoviesResponse, { currentPage: number }>(
+    'moviesSlice/getRatedMovie',
+    async ({currentPage}) => {
+        const {data} = await moviesService.getRatedMovie(currentPage);
+        return data;
+    }
+);
 
 export const getByIdMovies = createAsyncThunk<IMovie, { id: number }>(
     'moviesSlice/getByIdMovies',
@@ -54,6 +61,14 @@ export const getALLMovieWithGenre = createAsyncThunk<IMoviesResponse, number>(
     'moviesSlice/getALLMovieWithWGenre',
     async (id) => {
         const {data} = await moviesService.getALLMovieWithGenre(id);
+        return data;
+    }
+);
+
+export const getMovieWithYear = createAsyncThunk<IMoviesResponse, { year:number, currentPage:number }>(
+    'moviesSlice/getMovieWithYear',
+    async ({year, currentPage}) => {
+        const {data} = await moviesService.getMovieWithYear(year,currentPage);
         return data;
     }
 );
@@ -88,6 +103,16 @@ const moviesSlice = createSlice({
             state.movies = action.payload.results;
             state.totalPage = action.payload.total_pages;
         });
+        builder.addCase(getRatedMovie.fulfilled, (state, action) => {
+            state.status = 'fulfilled';
+            state.movies = action.payload.results;
+            state.totalPage = action.payload.total_pages;
+        });
+        builder.addCase(getMovieWithYear.fulfilled, (state, action) => {
+            state.status = 'fulfilled';
+            state.movies = action.payload.results;
+            state.totalPage = action.payload.total_pages;
+        })
     },
 });
 

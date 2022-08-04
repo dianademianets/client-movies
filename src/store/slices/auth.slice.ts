@@ -1,22 +1,26 @@
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit';
 
 import {authService} from '../../services';
-import {IUser, IUserData, IUserResponse} from '../../interfaces';
+import {IMovie, IMoviesResponse, IUser, IUserData, IUserResponse} from '../../interfaces';
 
 interface IAuthState {
     requestToken: any;
     session_id: any;
+    account_id: any;
     user: IUser | null;
     userResponse: IUserResponse | null;
     status: string | null;
+    movies: IMovie[];
 }
 
 const initialState: IAuthState = {
     requestToken: null,
     session_id: null,
+    account_id: null,
     user: null,
     userResponse: null,
-    status: null
+    status: null,
+    movies: []
 };
 
 export const getToken = createAsyncThunk<IUserData, void>(
@@ -48,6 +52,14 @@ export const getAccountDetails = createAsyncThunk<IUser, string>(
     }
 )
 
+export const getAccountWatchList = createAsyncThunk<IMoviesResponse, number>(
+    'authSlice/getAccountWatchList',
+    async (account_id) => {
+        const {data} = await authService.getAccountWatchList(account_id);
+        return data
+    }
+)
+
 
 const authSlice = createSlice({
     name: 'authSlice',
@@ -72,6 +84,11 @@ const authSlice = createSlice({
         builder.addCase(getAccountDetails.fulfilled, (state, action) => {
             state.status = 'fulfilled';
             state.user = action.payload;
+        })
+
+        builder.addCase(getAccountWatchList.fulfilled, (state, action) => {
+            state.status = 'fulfilled';
+            state.movies = action.payload.results;
         })
     }
 })

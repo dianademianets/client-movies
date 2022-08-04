@@ -1,15 +1,16 @@
 .movies_container_div {
-    display:flex;
+    display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     column-gap: 3%;
     break-inside: avoid;
 }
-.loading__div h1{
+
+.loading__div h1 {
     text-align: center;
     font-size: 40px;
-    color:snow;
-    margin:50px 0;
+    color: snow;
+    margin: 50px 0;
 }
 
 .wrap__pagination {
@@ -27,4 +28,48 @@
     background: linear-gradient(89.97deg, #90cea1 1.84%, #01b4e4 102.67%);
     font-weight: bold;
     font-size: 15px;
+}
+
+.div_carousel {
+    display: flex;
+    justify-content: center;
+}
+
+.div_carousel_inner {
+    width: 90%;
+}
+ .carousel-control-prev{
+    justify-content: flex-start;
+}
+.carousel-control-next{
+    justify-content: flex-end;
+}
+.button_container__carousel{
+    width:10%;
+    height:min-content;
+    font-size: 5px;
+    border: 1px solid gainsboro;
+    background: linear-gradient(89.97deg, lightgray 1.84%, snow 100.67%);
+    border-radius: 8px;
+    margin: 5px 0;
+    padding: 2px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.button_container__carousel:hover {
+    transform: scale(1.1);
+    background: #040C18;
+    color: snow;
+    opacity: 1;
+    border: 1px solid #002854;
+    text-decoration: none;
+}
+
+.button_container__carousel h1 {
+    font-size: 5px;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }

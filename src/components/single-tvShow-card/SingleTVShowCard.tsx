@@ -3,7 +3,6 @@ import {NavLink} from 'react-router-dom';
 
 import {ITVShow} from '../../interfaces';
 import {StarsRating} from '../stars-rating';
-import './singleTVShowCard.css'
 import {useAppDispatch, useAppSelector} from '../../hooks';
 import {getAllVideos} from '../../store/slices';
 import {Video} from '../video';
@@ -14,7 +13,7 @@ const SingleTVShowCard: FC<{ tvShow: ITVShow }> = ({tvShow}) => {
         popularity,
         genres,
         original_language,
-        original_title,
+        name,
         overview,
         poster_path,
         first_air_date,
@@ -30,11 +29,11 @@ const SingleTVShowCard: FC<{ tvShow: ITVShow }> = ({tvShow}) => {
 
     return (
         <div className='page_movie__div'>
-            <h1>{original_title}</h1>
+            <h1>{name}</h1>
             <div className='page_movie__container'>
                 <div className='page_movie_img'>
                     <img className='poster__img' src={`https://image.tmdb.org/t/p/w500${poster_path}`}
-                         alt={`${original_title} poster`}/>
+                         alt={`${name} poster`}/>
                 </div>
                 <div className='page_movie_text'>
                     <p><b className='rating'>TV Show rating: {vote_average}</b></p>

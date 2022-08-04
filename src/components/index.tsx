@@ -1,4 +1,5 @@
 export * from './popular-movies'
+export * from './popular-tv-shows'
 export * from './header'
 export * from './video'
 export * from './movie-card'

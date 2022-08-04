@@ -3,6 +3,7 @@ import {createAsyncThunk, createSlice} from '@reduxjs/toolkit';
 import {tvShowsService} from '../../services';
 import {IGenre, ITVShow, ITVShowsResponse} from '../../interfaces';
 
+
 interface ITVShowsState {
     tvShows: ITVShow[];
     tvShowById: ITVShow | null;
@@ -44,13 +45,34 @@ export const getByIdTVShow = createAsyncThunk<ITVShow, { id: number }>(
 );
 
 export const getALLTVShowWithGenre = createAsyncThunk<ITVShowsResponse, number>(
-    'tvShowsSlice/getALLMovieWithGenre',
+    'tvShowsSlice/getALLTVShowWithGenre',
     async (id) => {
         const {data} = await tvShowsService.getALLTVShowWithGenre(id);
         return data;
     }
 );
+export const getTVShowWithYear = createAsyncThunk<ITVShowsResponse, { year: number, currentPage: number }>(
+    'tvShowsSlice/getTVShowWithYear',
+    async ({year, currentPage}) => {
+        const {data} = await tvShowsService.getTVShowWithYear(year, currentPage);
+        return data;
+    }
+);
 
+export const getPopularTVShow = createAsyncThunk<ITVShowsResponse, { currentPage: number }>(
+    'tvShowsSlice/getPopularTVShow',
+    async ({currentPage}) => {
+        const {data} = await tvShowsService.getPopularTVShow(currentPage);
+        return data;
+    }
+);
+export const getRatedTVShow = createAsyncThunk<ITVShowsResponse, { currentPage: number }>(
+    'tvShowsSlice/getRatedTVShow',
+    async ({currentPage}) => {
+        const {data} = await tvShowsService.getRatedTVShow(currentPage);
+        return data;
+    }
+);
 
 const tvShowsSlice = createSlice({
     name: 'tvShowsSlice',
@@ -72,6 +94,24 @@ const tvShowsSlice = createSlice({
         builder.addCase(getALLTVShowWithGenre.fulfilled, (state, action) => {
             state.status = 'fulfilled';
             state.tvShows = action.payload.results
+        })
+        builder.addCase(getPopularTVShow.pending, (state) => {
+            state.status = 'Loading';
+        });
+        builder.addCase(getPopularTVShow.fulfilled, (state, action) => {
+            state.status = 'fulfilled';
+            state.tvShows = action.payload.results;
+            state.totalPage = action.payload.total_pages;
+        });
+        builder.addCase(getRatedTVShow.fulfilled, (state, action) => {
+            state.status = 'fulfilled';
+            state.tvShows = action.payload.results;
+            state.totalPage = action.payload.total_pages;
+        });
+        builder.addCase(getTVShowWithYear.fulfilled, (state, action) => {
+            state.status = 'fulfilled';
+            state.tvShows = action.payload.results;
+            state.totalPage = action.payload.total_pages;
         })
     },
 });

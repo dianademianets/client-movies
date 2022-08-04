@@ -19,6 +19,7 @@ export interface IMovie {
 }
 
 export interface IMoviesResponse {
+    year:number;
     page: number;
     results: IMovie[];
     total_results: number;
