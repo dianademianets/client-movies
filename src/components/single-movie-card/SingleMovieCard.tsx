@@ -5,7 +5,7 @@ import {IMovie} from '../../interfaces';
 import {StarsRating} from '../stars-rating';
 import './singleMovieCard.css'
 import {useAppDispatch, useAppSelector} from '../../hooks';
-import {addMovieToWatchList, getAllVideos} from '../../store/slices';
+import {addMovieToFavorite, addMovieToWatchList, getAllVideos} from '../../store/slices';
 import {Video} from '../video';
 
 const SingleMovieCard: FC<{ movie: IMovie }> = ({movie}) => {
@@ -37,7 +37,7 @@ const SingleMovieCard: FC<{ movie: IMovie }> = ({movie}) => {
         }
     }
     const addToFavorite = () => {
-        dispatch(addMovieToWatchList({id: Number(user?.id), session_id, media_id: Number(id)}));
+        dispatch(addMovieToFavorite({id: Number(user?.id), session_id, media_id: Number(id)}));
         if (session_id === null) {
             alert('Please sign in!')
         }

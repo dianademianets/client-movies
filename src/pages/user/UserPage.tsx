@@ -43,7 +43,7 @@ const UserPage: FC = () => {
                     </button>)}
             </div>
             <div className='movies_list__wrap'>
-                <div className='movies_popular__wrap'>Watchlist:</div>
+                <div className='movies_popular__wrap'>Favorite Movies:</div>
                 {favorite.map((value: IMovie) =>
                     <button className='button_container' onClick={() => navigate(`movie/${value.id.toString()}`)}>
                         <img className='poster_img' src={`https://image.tmdb.org/t/p/w500${value.poster_path}`}
