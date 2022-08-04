@@ -6,7 +6,7 @@ import {useAppDispatch, useAppSelector} from '../../hooks';
 import {createSessionId, getToken, login} from '../../store/slices';
 
 const LoginPage: FC = () => {
-        const {requestToken, userResponse, user} = useAppSelector((state) => state.authReducer)
+        const {requestToken, userResponse} = useAppSelector((state) => state.authReducer)
 
         const dispatch = useAppDispatch();
 
@@ -32,7 +32,7 @@ const LoginPage: FC = () => {
         }
 
         if (userResponse?.success === true) {
-            navigate(`/account/${user?.account_id}`)
+            navigate(`/account}`)
         } else if (userResponse?.success === false) {
             alert(`We don't found your account. Please, check that correct username`)
         }
