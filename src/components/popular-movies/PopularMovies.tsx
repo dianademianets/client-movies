@@ -36,7 +36,7 @@ const PopularMovies: FC = () => {
                     <div className='carousel-item active'>
                         {movies.map((movie: IMovie) =>
                             <button className='button_container__carousel'
-                                    onClick={() => navigate(`${movie.id.toString()}`)}>
+                                    onClick={() => navigate(`movie/${movie.id.toString()}`)}>
                                 <img className='poster_img' src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
                                      alt={`${movie.original_title} poster`}/>
                                 <h1>{movie.original_title}</h1>

@@ -10,7 +10,7 @@ const MovieCard: FC<{ movie: IMovie }> = ({movie}) => {
     const navigate = useNavigate();
 
     return (
-        <button className='button_container' onClick={() => navigate(`${id.toString()}`)}>
+        <button className='button_container' onClick={() => navigate(`movie/${id.toString()}`)}>
             <img className='poster_img' src={`https://image.tmdb.org/t/p/w500${poster_path}`}
                  alt={`${original_title} poster`}/>
             <h1>{original_title}</h1>

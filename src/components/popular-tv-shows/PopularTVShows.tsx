@@ -36,7 +36,7 @@ const PopularTVShows: FC = () => {
                     <div className='carousel-item active'>
                         {tvShows.map((tvShow: ITVShow) =>
                             <button className='button_container__carousel'
-                                    onClick={() => navigate(`${tvShow.id.toString()}`)}>
+                                    onClick={() => navigate(`tv/${tvShow.id.toString()}`)}>
                                 <img className='poster_img' src={`https://image.tmdb.org/t/p/w200${tvShow.poster_path}`}
                                      alt={`${tvShow.name} poster`}/>
                                 <h1>{tvShow.name}</h1>

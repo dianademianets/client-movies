@@ -10,7 +10,7 @@ const TVShowCard: FC<{ tvShow: ITVShow }> = ({tvShow}) => {
     const navigate = useNavigate();
 
     return (
-        <button className='button_container' onClick={() => navigate(`${id.toString()}`)}>
+        <button className='button_container' onClick={() => navigate(`tv/${id.toString()}`)}>
             <img className='poster_img' src={`https://image.tmdb.org/t/p/w200${poster_path}`}
                  alt={`${name} poster`}/>
             <h1>{name}</h1>

@@ -1,5 +1,5 @@
 import React, {FC, useEffect} from 'react';
-import {useNavigate, useParams} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 
 import './userPage.css'
 import {useAppDispatch, useAppSelector} from '../../hooks';
@@ -9,14 +9,13 @@ import {getAccountWatchList} from '../../store/slices';
 const UserPage: FC = () => {
     const {user, movies} = useAppSelector((state) => state.authReducer)
 
-    const {account_id} = useParams<{ account_id: string }>();
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
 
 
     useEffect(() => {
-        dispatch(getAccountWatchList(Number(account_id)));
-    }, [dispatch, account_id]);
+        dispatch(getAccountWatchList(Number(user?.account_id)));
+    }, [dispatch, user?.account_id]);
 
 
     return (
