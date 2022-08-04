@@ -14,20 +14,14 @@ const LoginPage: FC = () => {
             dispatch(getToken());
         }, [dispatch]);
 
-        useEffect(() => {
-            dispatch(createSessionId(requestToken));
-        }, [dispatch, requestToken]);
-
-
         const navigate = useNavigate();
         const ref = useRef<any>({});
-
 
         const handleChange = (e: any) => {
             const username = ref.current['username'].value;
             const password = ref.current['password'].value;
             dispatch(login({username, password, requestToken}));
-
+            dispatch(createSessionId(requestToken));
             e.preventDefault();
         }
 
