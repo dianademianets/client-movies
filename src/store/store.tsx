@@ -6,7 +6,8 @@ import {
     genresReducer,
     searchReducer,
     videoReducer,
-    tvShowsReducer
+    tvShowsReducer,
+    peopleReducer
 } from './slices';
 
 const rootReducer = combineReducers({
@@ -15,7 +16,8 @@ const rootReducer = combineReducers({
     genresReducer,
     searchReducer,
     videoReducer,
-    tvShowsReducer
+    tvShowsReducer,
+    peopleReducer
 });
 
 export const setupStore = () =>

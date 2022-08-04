@@ -32,6 +32,9 @@ const Header: FC = () => {
                         <NavLink to='/tv_shows'>
                             TV Shows
                         </NavLink>
+                        <NavLink to='/people'>
+                            People
+                        </NavLink>
                     </div>
                     <div>
                         <form className='form__wrap'>

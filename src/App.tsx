@@ -7,13 +7,15 @@ import {
     LoginPage,
     MoviesPage,
     NotFoundPage,
+    PeoplePage,
     RegisterPage,
     SearchPage,
     SingleMoviePage,
     SingleTVShowPage,
+    TVShowsPage,
     UserPage,
 } from './pages';
-import TVShowsPage from "./pages/tv_shows/TVShowsPage";
+
 
 function App() {
     return (
@@ -31,6 +33,9 @@ function App() {
                 <Route index element={<Navigate to={'tv_shows'}/>}/>
                 <Route path={'tv_shows'} element={<TVShowsPage/>}/>
                 <Route path={'tv_shows/tv/:id'} element={<SingleTVShowPage/>}/>
+
+                <Route index element={<Navigate to={'people'}/>}/>
+                <Route path={'people'} element={<PeoplePage/>}/>
 
                 <Route index element={<Navigate to={'search'}/>}/>
                 <Route path={'search'} element={<SearchPage/>}/>

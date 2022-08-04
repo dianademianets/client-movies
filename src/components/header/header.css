@@ -15,14 +15,14 @@
 }
 
 .header_left {
-    font-size: large;
+    font-size: medium;
 }
 
 .header_left, .header_right {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    column-gap: 15%;
+    column-gap: 10%;
 }
 
 .header a {

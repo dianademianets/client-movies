@@ -22,15 +22,15 @@
 }
 
 .div_wrapper_up_down {
-    margin:10px 0;
-    padding:0 10%;
+    margin: 10px 0;
+    padding: 0 10%;
     background: #040C18;
     display: flex;
     justify-content: flex-end;
 }
 
 .div_button {
-    width:30%;
+    width: 30%;
     display: flex;
 }
 
