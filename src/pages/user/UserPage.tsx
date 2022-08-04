@@ -17,8 +17,8 @@ const UserPage: FC = () => {
     }, [dispatch, session_id]);
 
     useEffect(() => {
-        dispatch(getAccountWatchList(Number(user?.account_id)));
-    }, [dispatch, user?.account_id]);
+        dispatch(getAccountWatchList(Number(user?.id)));
+    }, [dispatch, user?.id]);
 
     return (
         <div>

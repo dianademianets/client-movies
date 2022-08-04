@@ -21,19 +21,20 @@ const LoginPage: FC = () => {
         const navigate = useNavigate();
         const ref = useRef<any>({});
 
-        const handleChange = (e: any) => {
+        const handleChange =  (e: any) => {
             const username = ref.current['username'].value;
             const password = ref.current['password'].value;
             dispatch(createSessionId(requestToken));
             dispatch(login({username, password, requestToken}));
 
+            if (session_id) {
+                navigate(`/account`)
+            } else {
+                alert(`We don't found your account. Please, check that correct username`)
+            }
             e.preventDefault();
         }
-        if (session_id) {
-            navigate(`/account`)
-        } else if (!session_id) {
-            alert(`We don't found your account. Please, check that correct username`)
-        }
+
 
         return (
             <div className='container'>

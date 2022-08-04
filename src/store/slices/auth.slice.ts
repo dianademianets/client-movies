@@ -6,7 +6,7 @@ import {IMovie, IMoviesResponse, IUser, IUserData, IUserResponse} from '../../in
 interface IAuthState {
     requestToken: any;
     session_id: any;
-    account_id: any;
+    id: any;
     user: IUser | null;
     userResponse: IUserResponse | null;
     status: string | null;
@@ -16,7 +16,7 @@ interface IAuthState {
 const initialState: IAuthState = {
     requestToken: null,
     session_id: null,
-    account_id: null,
+    id: null,
     user: null,
     userResponse: null,
     status: null,
@@ -54,8 +54,8 @@ export const getAccountDetails = createAsyncThunk<IUser, string>(
 
 export const getAccountWatchList = createAsyncThunk<IMoviesResponse, number>(
     'authSlice/getAccountWatchList',
-    async (account_id) => {
-        const {data} = await authService.getAccountWatchList(account_id);
+    async (id) => {
+        const {data} = await authService.getAccountWatchList(id);
         return data
     }
 )
