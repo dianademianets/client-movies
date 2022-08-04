@@ -3,10 +3,10 @@ import React, {FC, useEffect, useRef} from 'react';
 import './userPage.css'
 import {useNavigate} from 'react-router-dom';
 import {useAppDispatch, useAppSelector} from '../../hooks';
-import {createSessionId, getAccountDetails, getToken, login} from '../../store/slices';
+import {createSessionId, getToken, login} from '../../store/slices';
 
 const LoginPage: FC = () => {
-        const {requestToken, userResponse, session_id, user} = useAppSelector((state) => state.authReducer)
+        const {requestToken, userResponse, user} = useAppSelector((state) => state.authReducer)
 
         const dispatch = useAppDispatch();
 
@@ -18,10 +18,6 @@ const LoginPage: FC = () => {
             dispatch(createSessionId(requestToken));
         }, [dispatch, requestToken]);
 
-        useEffect(() => {
-            dispatch(getAccountDetails(session_id));
-
-        }, [dispatch, session_id]);
 
         const navigate = useNavigate();
         const ref = useRef<any>({});

@@ -4,14 +4,17 @@ import {useNavigate} from 'react-router-dom';
 import './userPage.css'
 import {useAppDispatch, useAppSelector} from '../../hooks';
 import {IMovie} from '../../interfaces';
-import {getAccountWatchList} from '../../store/slices';
+import {getAccountDetails, getAccountWatchList} from '../../store/slices';
 
 const UserPage: FC = () => {
-    const {user, movies} = useAppSelector((state) => state.authReducer)
+    const {user, movies, session_id} = useAppSelector((state) => state.authReducer)
 
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
 
+    useEffect(() => {
+        dispatch(getAccountDetails(session_id));
+    }, [dispatch, session_id]);
 
     useEffect(() => {
         dispatch(getAccountWatchList(Number(user?.account_id)));
