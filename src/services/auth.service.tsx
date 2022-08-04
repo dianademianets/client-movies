@@ -21,7 +21,7 @@ export const authService = {
     addMovieToFavorite: (account_id: number,  session_id:string, media_id:number) => axiosService.post<IMoviesResponse>(`/account/${account_id}/favorite?session_id=${session_id}`, {
         media_type:'movie',
         media_id,
-        watchlist:true
+        favorite:true
     }),
 
 }
