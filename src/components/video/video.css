@@ -4,3 +4,12 @@
     height: 350px;
     transition: all 0.8s ease-in-out;
 }
+
+@media (min-width: 375px) and (max-width: 812px) {
+    .video__wrap {
+        margin-top: 1%;
+        width: 100%;
+        height: 60%;
+        transition: all 0.8s ease-in-out;
+    }
+}

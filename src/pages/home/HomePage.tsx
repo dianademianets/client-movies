@@ -6,7 +6,7 @@ import './homePage.css'
 const HomePage: FC = () => {
 
     return (
-        <div>
+        <div className='header_home'>
             <div className='header__wrap'>
                 Welcome. <br/> Millions of movies, TV shows and people to discover. Explore now.
             </div>

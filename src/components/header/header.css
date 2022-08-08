@@ -1,4 +1,4 @@
-.header__div_wrap{
+.header__div_wrap {
     width: 90%;
 }
 
@@ -49,13 +49,44 @@
     align-items: center;
 }
 
-.avatar{
+.avatar {
     padding: 20px 10px;
     font-size: 10px;
     font-weight: bold;
     text-align: center;
     color: black;
     white-space: nowrap;
-    background:linear-gradient(89.97deg, #01b4e4 1.84%, #90cea1 102.67%);
-    border-radius:30px;
+    background: linear-gradient(89.97deg, #01b4e4 1.84%, #90cea1 102.67%);
+    border-radius: 30px;
+}
+
+@media (min-width: 375px) and (max-width: 812px) {
+    .header__div_wrap {
+        width: 90%;
+    }
+
+    .header {
+        padding: 2%;
+    }
+
+    .header_left, .header_right {
+        font-size:10px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        column-gap: 8%;
+    }
+
+    .header_left {
+        font-size: 10px;
+    }
+
+    .form__wrap,
+    .toggle{
+        display: none;
+    }
+
+    .btn{
+        font-size:7px;
+    }
 }

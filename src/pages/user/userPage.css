@@ -23,7 +23,7 @@
     font-weight: bold;
 }
 
-.changeAva{
+.changeAva {
     background: url("https://www.gravatar.com/avatar/795194f75f0ed00c48c3c7eb36e2e591.jpg?s=150");
     border-radius: 100%
 }
@@ -43,8 +43,25 @@
 }
 
 .avatar__img {
-    margin:0 10%;
+    margin: 0 10%;
     width: 200px;
     height: 200px;
     border-radius: 100%
+}
+
+@media (min-width: 375px) and (max-width: 812px) {
+
+    .form_auth__h1 h1 {
+        font-size: 10px;
+    }
+
+    .avaUser__div h1 {
+        font-size: 10px;
+    }
+
+    .avatar__img {
+        width: 100px;
+        height: 100px;
+
+    }
 }

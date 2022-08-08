@@ -26,3 +26,16 @@
     width: 50%;
     margin: 5%;
 }
+@media (min-width: 375px) and (max-width: 812px) {
+    .not-found__div {
+        margin: 5%;
+    }
+
+    .not-found__text {
+        font-size: medium;
+    }
+
+    .link__button {
+        margin: 1%;
+    }
+}

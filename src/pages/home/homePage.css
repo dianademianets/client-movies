@@ -1,3 +1,6 @@
+.header_home{
+    height: 100%;
+}
 .header__wrap {
     background: url("https://www.themoviedb.org/t/p/w1920_and_h600_multi_faces_filter(duotone,032541,01b4e4)/bgQUBbZ14hfeb975yZ2YzTnAwen.jpg");
     background-size: 100% 100%;
@@ -27,9 +30,28 @@
     white-space: nowrap;
 }
 
-.loading__div h1{
+.loading__div h1 {
     text-align: center;
     font-size: 40px;
     color: snow;
     margin: 50px 0;
+}
+
+@media (min-width: 375px) and (max-width: 812px) {
+    .header__wrap {
+        font-size: 9px;
+        padding: 3%;
+    }
+
+    .movies_popular__wrap {
+        padding: 7px 10px;
+        margin-top: 10px;
+        border-radius: 20px;
+        font-size: 10px;
+    }
+
+    button{
+        font-size:7px;
+    }
+
 }

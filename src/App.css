@@ -41,3 +41,9 @@ body.light-theme {
 .btn {
     white-space: nowrap
 }
+
+@media (min-width: 375px) and (max-width: 812px) {
+body{
+    overflow-x: hidden;
+}
+}

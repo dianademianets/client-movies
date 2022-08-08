@@ -73,3 +73,35 @@
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+@media (min-width: 375px) and (max-width: 812px) {
+    .movies_container_div {
+        column-gap: 3%;
+    }
+
+    .loading__div h1 {
+        font-size: 10px;
+        margin: 15px 0;
+    }
+
+    .wrap__pagination {
+        margin: 10px;
+    }
+
+    .text_div {
+        padding: 2px 5px;
+        font-size: 7px;
+    }
+
+    .button_container__carousel{
+        width:20%;
+        font-size: 2px;
+        border-radius: 4px;
+        margin: 2px 0;
+        padding: 1px;
+    }
+
+    .button_container__carousel h1 {
+        font-size: 2px;
+    }
+}

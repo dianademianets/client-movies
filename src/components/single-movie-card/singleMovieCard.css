@@ -101,3 +101,66 @@
 .reactStars {
     margin: 0 39.5% 0 39.5%;
 }
+
+@media (min-width: 375px) and (max-width: 812px) {
+    .page_movie__div {
+        font-size: 10px;
+        padding: 5px 12px;
+        margin: 10px 0;
+    }
+
+    .page_movie__div h1 {
+        font-size: 15px;
+    }
+
+
+
+    .page_movie__container {
+        margin: 10px;
+        padding: 7px 0;
+    }
+
+    .div__watchlist__favorite {
+        margin-right: 2%;
+    }
+
+    .div_watchlist {
+        padding: 2px 5px;
+        margin: 0 10px;
+    }
+
+    .video_page__div {
+        margin: 0 2%;
+    }
+
+    .video_page__div h2 {
+        padding: 7px 10px;
+        margin: 5px 0;
+        border-radius: 20px;
+    }
+
+
+    .page_movie_text p {
+        margin: 5px 0;
+        font-size: 7px;
+    }
+
+    .card_genre_container {
+        font-size: 7px;
+        padding: 5px 0;
+    }
+
+    .card_genre_container_wrap {
+        padding: 0 5px;
+        margin: 0 2px 2px 2px;
+        border-radius: 10px;
+    }
+
+    .reactStars {
+        margin: 0 5.5% 0 5.5%;
+    }
+
+    .btn {
+        font-size: 7px;
+    }
+}

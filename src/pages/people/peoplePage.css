@@ -3,3 +3,10 @@
     display: flex;
     justify-content: center;
 }
+
+@media (min-width: 375px) and (max-width: 812px) {
+    .header_wrapper_div {
+        margin:0 5%;
+    }
+
+}

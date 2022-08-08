@@ -14,3 +14,15 @@
     color: snow;
     margin: 50px 0;
 }
+
+@media (min-width: 375px) and (max-width: 812px) {
+    .div__wrap-search {
+        margin: 1% 5%;
+    }
+
+    .loading__div h1{
+        font-size: 20px;
+        margin: 20px 0;
+    }
+
+}

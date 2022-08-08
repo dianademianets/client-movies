@@ -37,7 +37,7 @@ const Header: FC = () => {
                         </NavLink>
                     </div>
                     <div>
-                        <form className='form__wrap'>
+                        <form  className='form__wrap'>
                             <input className='form-control fs-6' ref={ref} type='text' name={'search'}
                                    placeholder='Search..'/>
                             <button onClick={handleChange} className='btn btn-outline-light fs-6'>Search</button>
@@ -49,8 +49,8 @@ const Header: FC = () => {
                     {(!user) ? <NavLink to='/user'>Sign In</NavLink> : (user) ?
                         <NavLink className='avatar' to={`/account`}>{user.username}</NavLink> :
                         <NavLink to='/user'>Sign Out</NavLink>}
-                    <div>
-                        <button className=' btn btn-outline-light fs-6'
+                    <div className='toggle'>
+                        <button  className=' btn btn-outline-light fs-6'
                                 onClick={() => document.body.classList.toggle('light-theme')}>Toggle Light
                         </button>
                     </div>
