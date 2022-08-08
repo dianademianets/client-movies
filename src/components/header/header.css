@@ -70,7 +70,7 @@
     }
 
     .header_left, .header_right {
-        font-size:15px;
+        font-size:12px;
         display: flex;
         justify-content: space-around;
         align-items: center;
@@ -78,7 +78,7 @@
     }
 
     .header_left {
-        font-size: 15px;
+        font-size: 12px;
     }
 
     .form__wrap,
